@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title>Flitter</title>
+<!-- Bootstrap CSS Files -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+<link rel="stylesheet" type="text/css" href="/static/style.css"/>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="text-center">Welcome to Flitter
+                <small>
+
+                    {% if session.logged_in %}
+                        @{{ session.username }}
+                    {% endif %}
+                </small>
+            </h1>
+            <p class="text-right"><a href="/flitter/logout">[log out]</a></p>
+        </div>
+    </div>
+    {% block body %}{% endblock %}
+</div>

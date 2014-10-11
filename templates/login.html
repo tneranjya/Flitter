@@ -1,0 +1,61 @@
+{% extends "app_wrapper.html" %}
+{% block body %}
+    <div class="row">
+        <div class="col-sm-6">
+
+            {% for user in users %}
+                <a href="/flitter/user/{{user[1]}}" class="btn btn-default btn-lg active btn-block" role="button">
+                <blockquote>
+                    <p>{{ user[0] }}</p>
+                    <footer>@{{ user[1] }}</footer>
+                </blockquote>
+            </a>
+            {% endfor %}
+
+        </div>
+        <div class="col-sm-6">
+            <div class="col-sm-12 form-group box-border">
+                <form action="/flitter/login" method="post">
+
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Username"/>
+
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password"/>
+
+                    <input type="submit" value="Login" class="btn btn-primary btn-lg btn-block"/>
+                </form>
+            </div>
+
+            <div class="col-sm-12 form-group box-border">
+                <form action="/flitter/register" method="post">
+
+                    <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Fullname"/>
+
+                    <input type="text" id="reg_username" name="username" class="form-control"
+                           placeholder="Username or E-Mail"/>
+
+                    <input type="password" id="reg_password" name="password" class="form-control" placeholder="Password"/>
+
+                    <input type="password" id="confirmpassword" name="confirmpassword" class="form-control"
+                           placeholder="Confirm Password"/>
+
+                    <input type="submit" value="Signup" class="btn btn-primary btn-lg btn-block"/>
+                </form>
+
+            </div>
+             <div class="col-sm-12 form-group">
+                {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                    <ul class=flashes>
+                    {% for message in messages %}
+                      <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                  {% endif %}
+                {% endwith %}
+                {% if error %}
+                    <p class="error"><strong>Error:</strong> {{ error }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
