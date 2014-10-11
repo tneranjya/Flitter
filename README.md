@@ -1,7 +1,7 @@
 Flitter
 =======
 
-Test application for sooyoung and Anders.
+A Twitter like test application written in Flask.
 
 Run dbutil.py directly to initialize the database tables.
 
