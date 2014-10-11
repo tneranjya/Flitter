@@ -17,7 +17,9 @@
                     {% endif %}
                 </small>
             </h1>
-            <p class="text-right"><a href="/flitter/logout">[log out]</a></p>
+            {% if session.logged_in %}
+                <p class="text-right"><a href="/flitter/logout">[log out]</a></p>
+            {% endif %}
         </div>
     </div>
     {% block body %}{% endblock %}
