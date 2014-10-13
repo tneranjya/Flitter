@@ -2,6 +2,7 @@ __author__ = 'thihara'
 #Entry point to the Flitter application and the controller functions.
 
 
+import os
 from flask import Flask, redirect, render_template, request, session, flash
 from UserService import UserService
 from PostService import PostService
@@ -102,5 +103,6 @@ def redirect_to_login(error=None):
 
 #Start the application if being invoked from the command line
 if __name__ == '__main__':
-    app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
 
