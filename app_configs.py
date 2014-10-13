@@ -1,5 +1,5 @@
 __author__ = 'thihara'
 
 # configuration
-DATABASE = '/tmp/flitter.db'
+DATABASE = '/app/flitter.db'
 SECRET_KEY = 'development key'
