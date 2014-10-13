@@ -1,5 +1,3 @@
-from jockey.detection import get_db_handlers
-
 __author__ = 'thihara'
 
 from dbutil import DBUtil
